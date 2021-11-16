@@ -11,7 +11,7 @@ pipeline {
         stage('Docker Build'){
             steps{
             //list docker images on system
-            pwsh(script: 'docker images -a')
+            powershell(script: 'docker images -a')
 
             }
         }
