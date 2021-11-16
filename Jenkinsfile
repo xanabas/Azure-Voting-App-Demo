@@ -12,7 +12,7 @@ pipeline {
             steps{
             //list docker images on system
             //powershell 'docker images -a'
-                powershell(". '.Test.ps1'") 
+            powershell(script: """Write-Output 'Hello PowerShell!!'"""
             }
         }
     }
