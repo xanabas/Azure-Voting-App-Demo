@@ -15,6 +15,7 @@ pipeline {
             steps{
             //list docker images on system
             //powershell 'docker images -a'
+            PowerShell(". '.\\disk-usage.ps1'; du -Verbose")
             powershell(script: """
                 Write-Output 'Hello PowerShell!!'
                 PowerShell 'docker images -a'
