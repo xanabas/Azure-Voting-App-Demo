@@ -10,7 +10,7 @@ pipeline {
         stage('Docker Build'){
             steps{
             //list docker images on system
-                docker images -a
+                powershell (script: 'docker images -a')
                 
             /*powershell(script: """
                 Write-Output 'Hello PowerShell!!'
