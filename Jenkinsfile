@@ -20,7 +20,8 @@ pipeline {
                     Invoke-Command {"docker images -a"}
                 """)*/
                 script {
-                    'docker images -a'
+                    'touch output.txt'
+                    'docker images -a >>> output.txt'
                 }
             }
         }
