@@ -19,10 +19,9 @@ pipeline {
                     
                     Invoke-Command {"docker images -a"}
                 """)*/
-                script {
-                    'touch output.txt'
-                    'docker images -a >>> output.txt'
-                }
+                bat ('touch output.txt')
+                    //'docker images -a >>> output.txt'
+               
                 
                 echo "${WORKSPACE}"
             }
