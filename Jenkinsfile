@@ -7,6 +7,11 @@ pipeline {
                 //echo "hello World"
             }
         }
+        stage('Example') {
+            steps {
+                echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
+            }
+        }
         stage('Docker Build'){
             steps{
             //list docker images on system
