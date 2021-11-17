@@ -14,11 +14,14 @@ pipeline {
         }
         stage('Docker Build'){
             steps{
-                powershell(script: """
+                /*powershell(script: """
                     Write-Output 'Hello PowerShell!!'
                     
                     Invoke-Command {"docker images -a"}
-                """)
+                """)*/
+                script {
+                    'docker images -a'
+                }
             }
         }
     }
