@@ -14,7 +14,7 @@ pipeline {
                 
             /*powershell(script: """
                 Write-Output 'Hello PowerShell!!'
-                PowerShell 'docker images -a'
+                powershell 'docker images -a'
                 """)
             */
             }
