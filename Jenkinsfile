@@ -19,7 +19,7 @@ pipeline {
                     
                     Invoke-Command {"docker images -a"}
                 """)*/
-                bat ('touch output.txt')
+                bat ('docker images -a')
                     //'docker images -a >>> output.txt'
                
                 
@@ -27,12 +27,4 @@ pipeline {
             }
         }
     }// end of stages
-    
-    post {
-        always {
-            script{
-                pwd
-            }
-        }
-    }
 }
