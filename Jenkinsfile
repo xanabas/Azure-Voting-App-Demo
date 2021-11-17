@@ -29,7 +29,9 @@ pipeline {
     
     post {
         always {
-            archiveArtifacts artifacts: '%cd%\output.txt', fingerprint: false
+            script {
+                archiveArtifacts artifacts: './output.txt', fingerprint: false
+            }
         }
     }
 }
