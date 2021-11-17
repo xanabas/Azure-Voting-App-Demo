@@ -23,6 +23,8 @@ pipeline {
                     'touch output.txt'
                     'docker images -a >>> output.txt'
                 }
+                
+                echo "${WORKSPACE}"
             }
         }
     }// end of stages
