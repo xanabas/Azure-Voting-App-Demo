@@ -14,16 +14,10 @@ pipeline {
         }
         stage('Docker Build'){
             steps{
-            //list docker images on system
-                //powershell 'docker images -a'
-                
-            powershell(script: """
-                Write-Output 'Hello PowerShell!!'
-                //powershell 'docker images -a'
+                powershell(script: """
+                    Write-Output 'Hello PowerShell!!'
+                    Start-Process "docker images -a"
                 """)
-            
-                //powershell(script: 'docker images -a')
-               // sh 'docker images -a'
             }
         }
     }
