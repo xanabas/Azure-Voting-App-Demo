@@ -29,7 +29,9 @@ pipeline {
     
     post {
         always {
-            pwd
+            script{
+                pwd
+            }
         }
     }
 }
