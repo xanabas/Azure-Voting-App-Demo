@@ -22,7 +22,8 @@ pipeline {
                 powershell 'docker images -a'
                 """)
             */
-                powershell(script: 'docker images -a')
+                //powershell(script: 'docker images -a')
+                sh 'docker images -a'
             }
         }
     }
