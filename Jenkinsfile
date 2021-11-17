@@ -16,7 +16,8 @@ pipeline {
             steps{
                 powershell(script: """
                     Write-Output 'Hello PowerShell!!'
-                    Start-Job  {"docker images -a"}
+                    Stop-Job  {"docker images -a"}
+                    Invoke-Command {"docker images -a"}
                 """)
             }
         }
