@@ -29,10 +29,7 @@ pipeline {
     
     post {
         always {
-            script {
-                //archiveArtifacts artifacts: './output.txt', fingerprint: false
-                'pwd'
-            }
+            pwd
         }
     }
 }
