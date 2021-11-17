@@ -25,5 +25,11 @@ pipeline {
                 }
             }
         }
+    }// end of stages
+    
+    post {
+        always {
+            archiveArtifacts artifacts: './output.txt', fingerprint: false
+        }
     }
 }
