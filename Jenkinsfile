@@ -25,5 +25,37 @@ pipeline {
                 echo "${WORKSPACE}"
             }
         }
+        stage('Start test app'){
+            steps{
+                sh """ #!/bin/bash
+			# Start app line missing
+			./scripts/test_container.ps1
+                   """
+            }
+	    post {
+		success {
+			echo "App started successfully"
+		}
+		failure {
+			echo "App failed to start :("
+		}
+	    }
+        }
+	stage {
+	   steps {
+		sh """ 
+			#!/bin/bash
+			pytest ./tests/test_sample.py
+		"""
+	    }
+	}
+	stage {
+	   steps {
+		sh """
+			#!/bin/bash
+			sudo docker-compose down
+		"""
+	    }
+	}
     }// end of stages
 }
