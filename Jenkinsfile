@@ -16,7 +16,7 @@ pipeline {
             steps{
                 sh """ #!/bin/bash
                        sudo docker images -a
-                       cd azure-voting-app-redis/
+			cd /mnt/d/Zain/Devops/Source/Repos/azure-voting-app-redis/
 			sudo docker images -a
 			sudo docker build -t jenkins-pipeline .
                         sudo docker images -a
