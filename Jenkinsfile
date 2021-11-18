@@ -22,8 +22,8 @@ pipeline {
                 //$docker = {C:%\%Program Files%\%Docker%\%Docker%\%resources%\%bin%\%docker}
                 //bat ('$docker images -a')
                 sh """ #!/bin/bash
-                docker images -a
-                """
+                       sudo docker images -a
+                   """
                     //'docker images -a >>> output.txt'
                               
                 echo "${WORKSPACE}"
