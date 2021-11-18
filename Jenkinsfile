@@ -14,18 +14,14 @@ pipeline {
         }
         stage('Docker Build'){
             steps{
-                /*powershell(script: """
-                    Write-Output 'Hello PowerShell!!'
-                    
-                    Invoke-Command {"docker images -a"}
-                """)*/
-                //$docker = {C:%\%Program Files%\%Docker%\%Docker%\%resources%\%bin%\%docker}
-                //bat ('$docker images -a')
                 sh """ #!/bin/bash
                        sudo docker images -a
+                       cd azure-voting-app-redis/
+			sudo docker images -a
+			sudo docker build -t jenkins-pipeline .
+                        sudo docker images -a
+                        cd ..
                    """
-                    //'docker images -a >>> output.txt'
-                              
                 echo "${WORKSPACE}"
             }
         }
