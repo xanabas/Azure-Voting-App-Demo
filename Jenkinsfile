@@ -41,7 +41,7 @@ pipeline {
 		}
 	    }
         }
-	stage {
+	stage('Run test python') {
 	   steps {
 		sh """ 
 			#!/bin/bash
@@ -49,7 +49,7 @@ pipeline {
 		"""
 	    }
 	}
-	stage {
+	stage('Stop Test app') {
 	   steps {
 		sh """
 			#!/bin/bash
