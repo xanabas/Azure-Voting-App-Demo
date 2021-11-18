@@ -19,9 +19,11 @@ pipeline {
                     
                     Invoke-Command {"docker images -a"}
                 """)*/
-                $docker = {C:%\%Program Files%\%Docker%\%Docker%\%resources%\%bin%\%docker}
+                //$docker = {C:%\%Program Files%\%Docker%\%Docker%\%resources%\%bin%\%docker}
                 //bat ('$docker images -a')
-                $docker images -a
+                sh """ #!/bin/bash
+                docker images -a
+                """
                     //'docker images -a >>> output.txt'
                               
                 echo "${WORKSPACE}"
