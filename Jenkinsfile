@@ -28,6 +28,7 @@ pipeline {
         stage('Start test app'){
             steps{
                 sh """ #!/bin/bash
+			cd /mnt/d/Zain/Devops/Source/Repos/azure-voting-app-redis/
 			sudo docker-compose up -d
 			./scripts/test_container.ps1
                    """
@@ -53,6 +54,7 @@ pipeline {
 	   steps {
 		sh """
 			#!/bin/bash
+			cd /mnt/d/Zain/Devops/Source/Repos/azure-voting-app-redis/
 			sudo docker-compose down
 		"""
 	    }
