@@ -28,7 +28,7 @@ pipeline {
         stage('Start test app'){
             steps{
                 sh """ #!/bin/bash
-			# Start app line missing
+			sudo docker-compose up -d
 			./scripts/test_container.ps1
                    """
             }
