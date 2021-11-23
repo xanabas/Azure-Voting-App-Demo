@@ -31,7 +31,7 @@ pipeline {
                         cd /mnt/d/Zain/Devops/Source/Repos/azure-voting-app-redis/
                         sudo docker-compose up --build
                         sudo docker-compose up -d
-                        ./scripts/test_container.ps1
+                        ./scripts/test_container.sh
                    """
             }
             post {
@@ -47,6 +47,7 @@ pipeline {
            steps {
                 sh """
                         #!/bin/bash
+			cd /mnt/d/Zain/Devops/Source/Repos/azure-voting-app-redis/
                         pytest ./tests/test_sample.py
                 """
             }
