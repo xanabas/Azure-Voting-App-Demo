@@ -29,7 +29,6 @@ pipeline {
             steps{
                 sh """ #!/bin/bash
                         cd /mnt/d/Zain/Devops/Source/Repos/azure-voting-app-redis/
-                        sudo docker-compose up --build
                         sudo docker-compose up -d
                         ./scripts/test_container.sh
                    """
