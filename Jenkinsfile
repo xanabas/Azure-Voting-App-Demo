@@ -12,5 +12,53 @@ pipeline {
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
             }
         }
+        stage('Docker Build'){
+            steps{
+                sh """ #!/bin/bash
+                       sudo docker images -a
+                        cd /mnt/d/Zain/Devops/Source/Repos/azure-voting-app-redis/azure-vote/
+                        sudo docker images -a
+                        sudo docker build -t jenkins-pipeline .
+                        sudo docker images -a
+                        cd ..
+                   """
+                echo "${WORKSPACE}"
+            }
+        }
+        stage('Start test app'){
+            steps{
+                sh """ #!/bin/bash
+                        cd /mnt/d/Zain/Devops/Source/Repos/azure-voting-app-redis/
+                        sudo docker-compose up --build
+                        sudo docker-compose up -d
+                        ./scripts/test_container.ps1
+                   """
+            }
+            post {
+                success {
+                        echo "App started successfully"
+                }
+                failure {
+                        echo "App failed to start :("
+                }
+            }
+        }
+        stage('Run test python') {
+           steps {
+                sh """
+                        #!/bin/bash
+                        pytest ./tests/test_sample.py
+                """
+            }
+        }
+        stage('Stop Test app') {
+           steps {
+                sh """
+                        #!/bin/bash
+                        cd /mnt/d/Zain/Devops/Source/Repos/azure-voting-app-redis/
+                        sudo docker-compose down
+                """
+            }
+        }
     }// end of stages
 }
