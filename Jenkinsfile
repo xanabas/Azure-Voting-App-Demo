@@ -29,7 +29,7 @@ pipeline {
             steps{
                 sh """ #!/bin/bash
                         cd /mnt/d/Zain/Devops/Source/Repos/azure-voting-app-redis/
-                        sudo docker-compose up -d --no-recreate
+                        //sudo docker-compose up -d --no-recreate
                         //sudo bash ./scripts/test_container.sh
                    """
             }
