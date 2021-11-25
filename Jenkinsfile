@@ -47,7 +47,7 @@ pipeline {
                 sh """
                         #!/bin/bash
 			cd /mnt/d/Zain/Devops/Source/Repos/azure-voting-app-redis/
-                        pytest ./tests/test_sample.py
+                        python3 ./tests/test_sample.py
                 """
             }
         }
