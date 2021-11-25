@@ -22,7 +22,7 @@ pipeline {
                         sudo docker images -a
                         cd ..
                    """
-                echo "${WORKSPACE}"
+                echo "${WORKSPACE} on ${env.NODE_NAME}"
             }
         }
         stage('Start test app'){
@@ -35,10 +35,10 @@ pipeline {
             }
             post {
                 success {
-                        echo "App started successfully"
+                        echo "App started successfully in feature branch"
                 }
                 failure {
-                        echo "App failed to start :("
+                        echo "App failed to start  in feature branch :("
                 }
             }
         }
