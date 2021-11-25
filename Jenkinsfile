@@ -25,23 +25,26 @@ pipeline {
                 echo "${WORKSPACE}"
             }
         }
-        stage('Start test app'){
-            steps{
-                sh """ #!/bin/bash
-                        cd /mnt/d/Zain/Devops/Source/Repos/azure-voting-app-redis/
-                        ###sudo docker-compose up -d --no-recreate
-                        sudo bash ./scripts/test_container.sh
-                   """
-            }
-            post {
-                success {
-                        echo "App started successfully"
-                }
-                failure {
-                        echo "App failed to start :("
-                }
-            }
-        }
+		node ("master"){
+			stage('Start test app'){
+				steps{
+					sh """ #!/bin/bash
+							cd /mnt/d/Zain/Devops/Source/Repos/azure-voting-app-redis/
+							###sudo docker-compose up -d --no-recreate
+							sudo bash ./scripts/test_container.sh
+					   """
+				}
+				post {
+					success {
+							echo "App started successfully"
+					}
+					failure {
+							echo "App failed to start :("
+					}
+				}
+			}
+		}
+        
         stage('Run test python') {
            steps {
                 sh """
