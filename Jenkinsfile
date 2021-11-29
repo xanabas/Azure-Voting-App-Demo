@@ -22,7 +22,7 @@ pipeline {
                         sudo docker images -a
                         cd ..
                    """
-                echo "${WORKSPACE} on ${env.NODE_NAME}"
+                echo "${WORKSPACE} on ${env.NODE_NAME at ${STAGE_NAME}}"
             }
         }
         stage('Start test app'){
