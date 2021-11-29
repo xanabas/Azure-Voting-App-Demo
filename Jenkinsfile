@@ -29,6 +29,7 @@ pipeline {
         stage('Start test app'){
             steps{
                 sh """ #!/bin/bash
+			env.STAGE_NAME = "Start test app"
                         cd /mnt/d/Zain/Devops/Source/Repos/azure-voting-app-redis/
                         sudo docker-compose up -d --no-recreate
                         sudo bash ./scripts/test_container.sh
