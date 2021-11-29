@@ -22,6 +22,7 @@ pipeline {
                         sudo docker images -a
                         cd ..
                    """
+                updateGitlabCommitStatus name: STAGE_NAME, state: 'running'
                 echo "${WORKSPACE} on ${env.NODE_NAME} at ${STAGE_NAME}"
             }
         }
