@@ -13,7 +13,6 @@ pipeline {
             }
         }
         stage('Docker Build'){
-	def current_stage = "Docker Build"
             steps{
                 sh """ #!/bin/bash
                        sudo docker images -a
@@ -37,10 +36,10 @@ pipeline {
             }
             post {
                 success {
-                        echo "App started successfully in feature branch"
+                        echo "App started successfully in ${BRANCH_NAME}"
                 }
                 failure {
-                        echo "App failed to start  in feature branch :("
+                        echo "App failed to start  in  ${BRANCH_NAME}:("
                 }
             }
         }
