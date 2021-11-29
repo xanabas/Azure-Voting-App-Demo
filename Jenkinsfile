@@ -13,6 +13,7 @@ pipeline {
             }
         }
         stage('Docker Build'){
+	def current_stage = "Docker Build"
             steps{
                 sh """ #!/bin/bash
                        sudo docker images -a
@@ -22,8 +23,6 @@ pipeline {
                         sudo docker images -a
                         cd ..
                    """
-		def current_stage = "Docker Build"
-		
                 echo "${WORKSPACE} on ${env.NODE_NAME} at $current_stage"
 		
             }
