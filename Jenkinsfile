@@ -22,7 +22,7 @@ pipeline {
                         sudo docker images -a
                         cd ..
                    """
-                echo "${WORKSPACE} on ${env.NODE_NAME} at $current_stage"
+                echo "${WORKSPACE} on ${env.NODE_NAME}"
 		
             }
         }
