@@ -51,14 +51,6 @@ pipeline {
                         python3 ./tests/test_sample.py
                 """
             }
-            post {
-                success {
-                        echo "Python test successful in ${BRANCH_NAME}"
-                }
-                failure {
-                        echo "Python test failed  in  ${BRANCH_NAME}:("
-                }
-            }
         }
         stage('Stop Test app') {
            steps {
